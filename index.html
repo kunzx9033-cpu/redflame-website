@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RedFlame Restaurant & Hotel | Luxury Stay & Royal Taste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RedFlame Restaurant & Hotel, Indrapuri Loni. Luxury dining, premium rooms, online food ordering & hotel booking." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --red:#8b0000;
+      --gold:#d4af37;
+      --black:#0b0b0b;
+      --glass:rgba(255,255,255,0.08);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{
+      background:radial-gradient(circle at top,#1a1a1a,#000);
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    /* ---------- GLOBAL ---------- */
+    section{padding:80px 6%}
+    h2{font-size:2.4rem;color:var(--gold);margin-bottom:20px}
+    p{color:#ddd;line-height:1.7}
+    .btn{
+      padding:12px 26px;
+      border-radius:30px;
+      background:linear-gradient(135deg,var(--red),#ff2b2b);
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow:0 10px 30px rgba(255,0,0,.3);
+      transition:.4s;
+    }
+    .btn:hover{transform:translateY(-3px) scale(1.03)}
+
+    /* ---------- NAV ---------- */
+    nav{
+      position:fixed;top:0;width:100%;
+      padding:18px 6%;
+      display:flex;justify-content:space-between;align-items:center;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(14px);
+      z-index:1000;
+    }
+    nav h1{color:var(--gold)}
+    nav ul{display:flex;gap:22px;list-style:none}
+    nav li:hover{color:var(--gold)}
+
+    /* ---------- HERO ---------- */
+    .hero{
+      height:100vh;
+      display:flex;align-items:center;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1541542684-4eabeae1c0e3?auto=format&fit=crop&w=1600");
+      background-size:cover;
+      background-position:center;
+    }
+    .hero-box{
+      max-width:650px;
+      padding:40px;
+      background:var(--glass);
+      border-radius:20px;
+      backdrop-filter:blur(20px);
+      box-shadow:0 30px 80px rgba(0,0,0,.8);
+      animation:float 6s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-15px)}
+    }
+    .hero h2{font-size:3rem}
+    .hero-actions{margin-top:30px;display:flex;gap:15px;flex-wrap:wrap}
+
+    /* ---------- CARDS ---------- */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+    .card{
+      background:var(--glass);
+      border-radius:20px;
+      padding:22px;
+      backdrop-filter:blur(18px);
+      box-shadow:0 25px 60px rgba(0,0,0,.6);
+      transition:.5s;
+      transform-style:preserve-3d;
+    }
+    .card:hover{
+      transform:rotateY(8deg) rotateX(6deg) translateY(-10px);
+    }
+    .card img{
+      width:100%;
+      border-radius:14px;
+      margin-bottom:14px;
+    }
+
+    /* ---------- DASHBOARD ---------- */
+    .dashboard{
+      background:rgba(0,0,0,.55);
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 20px 60px rgba(0,0,0,.7);
+    }
+    .item{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)
+    }
+    .status{color:var(--gold);font-size:.9rem}
+
+    /* ---------- STICKY BUTTONS ---------- */
+    .sticky{
+      position:fixed;right:18px;z-index:2000;
+      padding:14px;border-radius:50%;
+      box-shadow:0 10px 30px rgba(0,0,0,.6);
+      cursor:pointer;
+    }
+    .call{bottom:90px;background:#1db954}
+    .wa{bottom:20px;background:#25d366}
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      background:#000;
+      text-align:center;
+      padding:30px;
+      color:#aaa;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:768px){
+      .hero h2{font-size:2.2rem}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <h1>🔥 RedFlame</h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#restaurant">Restaurant</a></li>
+    <li><a href="#hotel">Hotel</a></li>
+    <li><a href="#dashboard">Orders</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-box">
+    <h2>Luxury Stay • Royal Taste<br>RedFlame Experience</h2>
+    <p>Premium dining and comfortable hotel stay in Indrapuri, Loni.</p>
+    <div class="hero-actions">
+      <button class="btn" onclick="orderFood()">Order Food</button>
+      <button class="btn" onclick="bookRoom()">Book Room</button>
+      <a href="tel:+919999999999"><button class="btn">Call Now</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANT -->
+<section id="restaurant">
+  <h2>Restaurant Menu</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908554164-65d14f6d1b59?auto=format&fit=crop&w=800">
+      <h3>Paneer Butter Masala</h3>
+      <p>₹220 • Veg</p>
+      <button class="btn" onclick="addOrder('Paneer Butter Masala')">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800">
+      <h3>Chicken Tikka</h3>
+      <p>₹320 • Non-Veg</p>
+      <button class="btn" onclick="addOrder('Chicken Tikka')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOTEL -->
+<section id="hotel">
+  <h2>Hotel Rooms</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800">
+      <h3>Deluxe Room</h3>
+      <p>₹2,000 / night • 2 Guests</p>
+      <button class="btn" onclick="addBooking('Deluxe Room')">Book Room</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800">
+      <h3>Executive Suite</h3>
+      <p>₹3,500 / night • 3 Guests</p>
+      <button class="btn" onclick="addBooking('Executive Suite')">Book Room</button>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <h2>Your Orders & Bookings</h2>
+  <div class="dashboard" id="list"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact & Location</h2>
+  <p>Indrapuri, Loni, India</p>
+  <iframe
+    src="https://www.google.com/maps?q=Indrapuri%20Loni&output=embed"
+    width="100%" height="300" style="border-radius:20px;border:0;margin-top:20px">
+  </iframe>
+</section>
+
+<!-- STICKY -->
+<a href="tel:+919999999999"><div class="sticky call"><i class="fa fa-phone"></i></div></a>
+<a href="https://wa.me/919999999999"><div class="sticky wa"><i class="fa fa-whatsapp"></i></div></a>
+
+<footer>
+  © 2026 RedFlame Restaurant & Hotel • Luxury Dining & Stay
+</footer>
+
+<script>
+  let data = JSON.parse(localStorage.getItem("rf")) || [];
+
+  function addOrder(item){
+    data.push({type:"Food",name:item,status:"Confirmed"});
+    save();
+  }
+  function addBooking(room){
+    data.push({type:"Room",name:room,status:"Confirmed"});
+    save();
+  }
+  function cancel(i){
+    data[i].status="Cancelled";
+    save();
+  }
+  function save(){
+    localStorage.setItem("rf",JSON.stringify(data));
+    render();
+  }
+  function render(){
+    const box=document.getElementById("list");
+    box.innerHTML="";
+    data.forEach((d,i)=>{
+      box.innerHTML+=`
+        <div class="item">
+          <div>${d.type}: ${d.name}</div>
+          <div>
+            <span class="status">${d.status}</span>
+            ${d.status!=="Cancelled"?`<button class="btn" onclick="cancel(${i})">Cancel</button>`:""}
+          </div>
+        </div>`;
+    });
+  }
+  function orderFood(){document.getElementById("restaurant").scrollIntoView({behavior:"smooth"})}
+  function bookRoom(){document.getElementById("hotel").scrollIntoView({behavior:"smooth"})}
+  render();
+</script>
+
+</body>
+</html>
