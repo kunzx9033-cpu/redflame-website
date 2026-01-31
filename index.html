@@ -182,7 +182,14 @@
       <img src="https://images.unsplash.com/photo-1604908554164-65d14f6d1b59?auto=format&fit=crop&w=800">
       <h3>Paneer Butter Masala</h3>
       <p>₹220 • Veg</p>
-      <button class="btn" onclick="addOrder('Paneer Butter Masala')">Add to Cart</button>
+      <button class="btn"
+onclick="sendOrderToSheet('Paneer Butter Masala'); whatsappOrder('Paneer Butter Masala')">
+Order on WhatsApp
+</button>
+
+Order on WhatsApp
+</button>
+
     </div>
     <div class="card">
       <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800">
@@ -271,8 +278,34 @@
   }
   function orderFood(){document.getElementById("restaurant").scrollIntoView({behavior:"smooth"})}
   function bookRoom(){document.getElementById("hotel").scrollIntoView({behavior:"smooth"})}
-  render();
+  render(); function whatsappOrder(item){
+  const phone = "91931112586"; // OWNER NUMBER
+  const msg = `Hello RedFlame Restaurant,
+I want to order:
+
+Item: ${item}
+
+Name:
+Address:
+Phone:`;
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,
+    "_blank"
+  );
+}
+function sendOrderToSheet(item){
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfDXcZDtbHycUlVEd_4-eXdYwkjetSkIm7LsTNHFlkRtTZpfw/formResponse?usp=header",{
+    method:"POST",
+    mode:"no-cors",
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    },
+    body:`entry.385202422=test{item}`
+  });
+}
+
 </script>
 
 </body>
 </html>
+
